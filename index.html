@@ -3219,19 +3219,13 @@
         }, observerOptions);
 
         // Apply observer to all sections, cards, and elements
-        document.querySelectorAll('section, .property-card, .testimonial-card, .team-member, .resource-card').forEach(el => {
+        document.querySelectorAll('section, .property-card, .testimonial-card, .team-member, .resource-card, .benefit-item').forEach(el => {
             observer.observe(el);
         });
 
         // Add class to property cards for staggered animation
         document.querySelectorAll('.property-card').forEach(card => {
             card.classList.add('animate-in');
-        });
-
-        // Apply staggered animation to benefit items in "Why Balam Group?" section
-        document.querySelectorAll('.gregory-story-body > .gregory-article-text > div > div').forEach((item, index) => {
-            item.classList.add('benefit-item');
-            item.style.animationDelay = `${index * 0.15}s`;
         });
 
         // ===== FLOATING WHATSAPP BUTTON =====
