@@ -3001,6 +3001,71 @@
             }
         }
 
+        
+        /* ===== STAGGERED REVEAL DELAYS (like Bernius) ===== */
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.2s; }
+        .reveal-delay-3 { animation-delay: 0.3s; }
+        .reveal-delay-4 { animation-delay: 0.4s; }
+        .reveal-delay-5 { animation-delay: 0.5s; }
+        .reveal-delay-6 { animation-delay: 0.6s; }
+
+        /* ===== SHIMMER EFFECT ===== */
+        @keyframes shimmer {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* ===== FLOAT PULSE ===== */
+        @keyframes floatPulse {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            /* Hero stagger animations */
+            .hero h1 {
+                animation: fadeInUp 0.9s cubic-bezier(.4,0,.2,1) both;
+            }
+
+            .hero p {
+                animation: fadeInUp 0.9s 0.2s cubic-bezier(.4,0,.2,1) both;
+            }
+
+            .hero .btn-cta-primary {
+                animation: fadeInUp 0.9s 0.35s cubic-bezier(.4,0,.2,1) both;
+            }
+
+            /* Smooth transitions on all interactive elements */
+            .property-card,
+            .team-member,
+            .testimonial,
+            .btn-cta-primary,
+            .btn-cta-secondary,
+            .btn-learn {
+                transition: transform 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1), opacity 0.25s cubic-bezier(.4,0,.2,1);
+            }
+
+            /* Button press effect */
+            .btn-cta-primary:active,
+            .btn-cta-secondary:active,
+            .btn-learn:active {
+                transform: scale(0.98);
+                transition: transform 0.1s cubic-bezier(.4,0,.2,1);
+            }
+
+            /* Shimmer on trust badges */
+            .stat-card {
+                animation: shimmer 2s cubic-bezier(.4,0,.2,1) infinite;
+            }
+
+            /* Subtle float pulse on features/benefits */
+            .benefit-item {
+                animation: floatPulse 3s cubic-bezier(.4,0,.2,1) infinite;
+            }
+        }
+
         </style>
 
     <!-- ===== FOOTER ===== -->
