@@ -3136,58 +3136,60 @@
     </a>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('mobile-menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-        let menuOpen = false;
+        // ===== MOBILE HAMBURGER MENU =====
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const navList = document.getElementById('nav-menu');
 
-        function updateMenuVisibility() {
+        // Initialize menu visibility
+        function initMenu() {
             if (window.innerWidth < 768) {
-                menuToggle.style.display = 'block';
-                // Don't auto-hide menu if user opened it
-                if (!menuOpen) {
-                    navMenu.style.display = 'none';
-                }
+                toggleBtn.style.display = 'block';
+                navList.style.display = 'none';
             } else {
-                menuToggle.style.display = 'none';
-                navMenu.style.display = 'flex';
-                menuOpen = false;
+                toggleBtn.style.display = 'none';
+                navList.style.display = 'flex';
             }
         }
 
-        if (menuToggle) {
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.addEventListener('click', (e) => {
+        // Toggle menu on button click
+        if (toggleBtn && navList) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 e.stopPropagation();
-                menuOpen = !menuOpen;
-                navMenu.style.display = menuOpen ? 'flex' : 'none';
-                menuToggle.classList.toggle('active');
-                menuToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
-            });
 
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth < 768 && menuOpen && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                    menuOpen = false;
-                    navMenu.style.display = 'none';
-                    menuToggle.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
+                if (navList.style.display === 'none') {
+                    navList.style.display = 'flex';
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    navList.style.display = 'none';
+                    toggleBtn.setAttribute('aria-expanded', 'false');
                 }
             });
 
-            document.querySelectorAll('#nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
+            // Close menu when clicking on links
+            navList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
                     if (window.innerWidth < 768) {
-                        menuOpen = false;
-                        navMenu.style.display = 'none';
-                        menuToggle.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                        navList.style.display = 'none';
+                        toggleBtn.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
 
-            window.addEventListener('resize', updateMenuVisibility);
-            updateMenuVisibility();
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    navList.style.display = 'flex';
+                    toggleBtn.style.display = 'none';
+                } else {
+                    toggleBtn.style.display = 'block';
+                    navList.style.display = 'none';
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Initialize on page load
+            initMenu();
         }
 
         // FAQ toggle
@@ -3416,6 +3418,49 @@
 
         document.querySelectorAll('.testimonials-stat').forEach(el => {
             countUpObserver.observe(el);
+        });
+
+        // ===== COUNT UP FOR TRUST BADGES (100%, 0) =====
+        const trustBadgeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numberElement = entry.target.querySelector('.trust-badge-number');
+                    if (numberElement && !numberElement.classList.contains('counting')) {
+                        numberElement.classList.add('counting');
+                        const originalText = numberElement.textContent;
+                        const isPercent = originalText.includes('%');
+                        const match = originalText.match(/(\d+)/);
+
+                        if (match) {
+                            const targetNum = parseInt(match[1]);
+                            let current = 0;
+                            const duration = 1500; // 1.5 seconds
+                            const steps = 50;
+                            const increment = targetNum / steps;
+                            let step = 0;
+
+                            const countInterval = setInterval(() => {
+                                step++;
+                                current = Math.floor(increment * step);
+
+                                if (step >= steps) {
+                                    numberElement.textContent = targetNum + (isPercent ? '%' : '');
+                                    clearInterval(countInterval);
+                                    setTimeout(() => {
+                                        numberElement.classList.remove('counting');
+                                    }, 300);
+                                } else {
+                                    numberElement.textContent = current + (isPercent ? '%' : '');
+                                }
+                            }, duration / steps);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.trust-badge').forEach(el => {
+            trustBadgeObserver.observe(el);
         });
     </script>
 
