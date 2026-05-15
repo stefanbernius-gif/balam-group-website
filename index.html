@@ -217,21 +217,20 @@
 
         /* ===== NAVIGATION ===== */
         nav {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.4);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.02);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s ease;
         }
 
         nav.scrolled {
-            opacity: 1;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
 
         nav .container {
@@ -239,6 +238,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 2rem;
+            position: relative;
         }
 
         .logo {
@@ -249,15 +249,58 @@
             letter-spacing: -0.02em;
         }
 
+        /* Mobile menu (default) */
         nav ul {
-            display: none;
             list-style: none;
             gap: 40px;
+            margin: 0;
+            padding: 0;
         }
 
+        /* Mobile dropdown styling */
+        @media (max-width: 767px) {
+            nav ul#nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 20px 2rem;
+                gap: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                border-top: 1px solid rgba(226, 232, 240, 0.4);
+                display: none;
+            }
+
+            nav ul#nav-menu.menu-open {
+                display: flex !important;
+            }
+
+            nav ul#nav-menu li {
+                width: 100%;
+            }
+
+            nav ul#nav-menu a {
+                display: block;
+                padding: 8px 0;
+                font-size: 15px;
+            }
+
+            #mobile-menu-toggle {
+                display: block !important;
+            }
+        }
+
+        /* Desktop menu */
         @media (min-width: 768px) {
-            nav ul {
-                display: flex;
+            nav ul#nav-menu {
+                display: flex !important;
+            }
+
+            #mobile-menu-toggle {
+                display: none !important;
             }
         }
 
@@ -2106,8 +2149,8 @@
     <nav class="scrolled">
         <div class="container">
             <div class="logo">Balam Group</div>
-            <button id="mobile-menu-toggle" style="display: none; background: none; border: none; cursor: pointer; font-size: 22px; padding: 8px; color: var(--navy);" aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="nav-menu">☰</button>
-            <ul id="nav-menu" style="display: flex;">
+            <button id="mobile-menu-toggle" style="background: none; border: none; cursor: pointer; font-size: 24px; padding: 8px; color: var(--navy); z-index: 1001;" aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="nav-menu">☰</button>
+            <ul id="nav-menu">
                 <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#properties">Properties</a></li>
                 <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#team">Team</a></li>
                 <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#guide">Buyer's Guide</a></li>
@@ -3137,60 +3180,54 @@
 
     <script>
         // ===== MOBILE HAMBURGER MENU =====
-        const toggleBtn = document.getElementById('mobile-menu-toggle');
-        const navList = document.getElementById('nav-menu');
+        (function() {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navList = document.getElementById('nav-menu');
 
-        // Initialize menu visibility
-        function initMenu() {
-            if (window.innerWidth < 768) {
-                toggleBtn.style.display = 'block';
-                navList.style.display = 'none';
-            } else {
-                toggleBtn.style.display = 'none';
-                navList.style.display = 'flex';
+            if (!toggleBtn || !navList) {
+                console.warn('Hamburger menu: elements not found');
+                return;
             }
-        }
 
-        // Toggle menu on button click
-        if (toggleBtn && navList) {
+            // Toggle menu on button click using class-based approach
             toggleBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
-                if (navList.style.display === 'none') {
-                    navList.style.display = 'flex';
-                    toggleBtn.setAttribute('aria-expanded', 'true');
-                } else {
-                    navList.style.display = 'none';
-                    toggleBtn.setAttribute('aria-expanded', 'false');
-                }
+                const isOpen = navList.classList.toggle('menu-open');
+                toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                toggleBtn.textContent = isOpen ? '✕' : '☰';
             });
 
-            // Close menu when clicking on links
-            navList.querySelectorAll('a').forEach(link => {
+            // Close menu when clicking links
+            navList.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
-                    if (window.innerWidth < 768) {
-                        navList.style.display = 'none';
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                    }
+                    navList.classList.remove('menu-open');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.textContent = '☰';
                 });
             });
 
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
-                    navList.style.display = 'flex';
-                    toggleBtn.style.display = 'none';
-                } else {
-                    toggleBtn.style.display = 'block';
-                    navList.style.display = 'none';
-                    toggleBtn.setAttribute('aria-expanded', 'false');
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navList.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    if (navList.classList.contains('menu-open')) {
+                        navList.classList.remove('menu-open');
+                        toggleBtn.setAttribute('aria-expanded', 'false');
+                        toggleBtn.textContent = '☰';
+                    }
                 }
             });
 
-            // Initialize on page load
-            initMenu();
-        }
+            // Reset menu state on resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    navList.classList.remove('menu-open');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    toggleBtn.textContent = '☰';
+                }
+            });
+        })();
 
         // FAQ toggle
         document.querySelectorAll('.faq-question').forEach(button => {
