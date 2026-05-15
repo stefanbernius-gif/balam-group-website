@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0166)file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#properties -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balam Group Real Estate | Premium Properties in Mérida, Yucatán</title>
     <meta name="description" content="Discover premium real estate opportunities in Mérida, Yucatán. 500+ foreign buyers guided. Investment properties, beachfront, and residences.">
@@ -9,16 +9,16 @@
     <meta property="og:description" content="Discover premium real estate opportunities in Mérida, Yucatán. 500+ foreign buyers guided. Investment properties, beachfront, and residences.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://balamgroup.com">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&h=630&fit=crop">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&amp;h=630&amp;fit=crop">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Balam Group Real Estate | Premium Properties in Mérida, Yucatán">
     <meta name="twitter:description" content="Discover premium real estate opportunities in Mérida, Yucatán. 500+ foreign buyers guided.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=800&fit=crop">
-    <link rel="canonical" href="https://balamgroup.com">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&amp;h=800&amp;fit=crop">
+    <link rel="canonical" href="https://balamgroup.com/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/css2" rel="stylesheet">
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -41,6 +41,10 @@
             --muted: #64748B;
             --light: #64748B;
             --accent: #C9922A;
+            /* easing curves */
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* ===== ANIMATIONS ===== */
@@ -79,47 +83,88 @@
 
         @media (prefers-reduced-motion: no-preference) {
             .fade-in-up {
-                animation: fadeInUp 0.6s ease-out forwards;
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
             }
 
             .fade-in-scale {
-                animation: fadeInScale 0.5s ease-out forwards;
+                animation: fadeInScale 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
             }
 
             .slide-in-left {
-                animation: slideInFromLeft 0.6s ease-out forwards;
+                animation: slideInFromLeft 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
             }
 
             /* Staggered animation for benefit items */
             .benefit-item {
-                animation: fadeInUp 0.6s ease-out forwards;
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
             }
 
             .benefit-item:nth-child(1) { animation-delay: 0s; }
-            .benefit-item:nth-child(2) { animation-delay: 0.15s; }
-            .benefit-item:nth-child(3) { animation-delay: 0.3s; }
-            .benefit-item:nth-child(4) { animation-delay: 0.45s; }
+            .benefit-item:nth-child(2) { animation-delay: 0.05s; }
+            .benefit-item:nth-child(3) { animation-delay: 0.1s; }
+            .benefit-item:nth-child(4) { animation-delay: 0.15s; }
 
             /* Staggered animation for property cards */
             .property-card.animate-in {
-                animation: fadeInUp 0.6s ease-out forwards;
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
+                transform-origin: center;
             }
 
             .property-card.animate-in:nth-of-type(1) { animation-delay: 0s; }
-            .property-card.animate-in:nth-of-type(2) { animation-delay: 0.1s; }
-            .property-card.animate-in:nth-of-type(3) { animation-delay: 0.2s; }
-            .property-card.animate-in:nth-of-type(4) { animation-delay: 0.3s; }
-            .property-card.animate-in:nth-of-type(5) { animation-delay: 0.4s; }
+            .property-card.animate-in:nth-of-type(2) { animation-delay: 0.05s; }
+            .property-card.animate-in:nth-of-type(3) { animation-delay: 0.1s; }
+            .property-card.animate-in:nth-of-type(4) { animation-delay: 0.15s; }
+            .property-card.animate-in:nth-of-type(5) { animation-delay: 0.2s; }
+
+            /* Testimonial card entrance animations */
+            .testimonial {
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
+                opacity: 0;
+            }
+
+            .testimonials-grid > .testimonial:nth-child(1) { animation-delay: 0.05s; }
+            .testimonials-grid > .testimonial:nth-child(2) { animation-delay: 0.1s; }
+            .testimonials-grid > .testimonial:nth-child(3) { animation-delay: 0.15s; }
+
+            /* Team member card animations */
+            .team-member {
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
+                opacity: 0;
+            }
+
+            .team-grid > .team-member:nth-child(1) { animation-delay: 0.05s; }
+            .team-grid > .team-member:nth-child(2) { animation-delay: 0.1s; }
+            .team-grid > .team-member:nth-child(3) { animation-delay: 0.15s; }
         }
 
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Performance optimizations */
+        @media (prefers-reduced-motion: no-preference) {
+            .property-card {
+                will-change: transform;
+            }
+
+            .testimonial {
+                will-change: transform;
+            }
+
+            .team-member {
+                will-change: transform;
+            }
+
+            .btn-learn {
+                will-change: transform;
+            }
         }
 
         body {
@@ -128,6 +173,7 @@
             background: var(--white);
             line-height: 1.75;
             font-weight: 400;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -223,11 +269,13 @@
             font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.05em;
-            transition: color 0.2s;
+            transition: color 0.25s var(--ease-out-quart);
         }
 
-        nav a:hover {
-            color: var(--gold);
+        @media (prefers-reduced-motion: no-preference) {
+            nav a:hover {
+                color: var(--gold);
+            }
         }
 
         .nav-cta {
@@ -240,17 +288,24 @@
             text-transform: uppercase;
             border: none;
             border-radius: 4px;
+            transition: all 0.25s var(--ease-out-quart);
         }
 
-        .nav-cta:hover {
-            opacity: 0.9 !important;
-            color: var(--white) !important;
+        @media (prefers-reduced-motion: no-preference) {
+            .nav-cta:hover {
+                transform: scale(1.02);
+                box-shadow: 0 4px 12px rgba(201, 146, 42, 0.2);
+            }
+        }
+
+        .nav-cta:active {
+            transform: scale(0.97);
         }
 
         /* ===== HERO ===== */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop') center/cover no-repeat fixed;
+            background: url('https://images.unsplash.com/photo-1585649166190-bef6ff48e78b?w=1920&h=1080&fit=crop') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -370,20 +425,15 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
+                font-size: 2.8rem;
             }
             .hero-subtitle {
-                font-size: 15px;
-                margin-bottom: 1.5rem;
-            }
-            .hero-cta {
-                gap: 1rem;
+                font-size: 16px;
+                margin-bottom: 2rem;
             }
             .btn {
-                padding: 12px 24px;
+                padding: 14px 32px;
                 min-width: auto;
-                font-size: 12px;
             }
         }
 
@@ -402,6 +452,17 @@
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 767px) {
+            .btn {
+                padding: 16px 28px;
+                font-size: 12px;
+            }
         }
 
         .btn-primary {
@@ -413,6 +474,15 @@
             opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(201, 146, 42, 0.3);
+        }
+
+        .btn-primary:focus {
+            outline: 2px solid var(--navy);
+            outline-offset: 2px;
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
         }
 
         .btn-secondary {
@@ -575,6 +645,14 @@
             border-radius: 4px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             border-top: 3px solid var(--gold);
+            transition: all 0.25s var(--ease-out-quart);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .stat-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            }
         }
 
         .stat-number {
@@ -630,6 +708,14 @@
             background: var(--white);
             border-radius: 4px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: all 0.25s var(--ease-out-quart);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .process-step:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            }
         }
 
         .step-number {
@@ -672,6 +758,7 @@
             padding: 5rem 0;
             background: var(--white);
             border-bottom: 1px solid var(--rule);
+            contain: layout style paint;
         }
 
         .featured-properties .section-header h2 {
@@ -709,12 +796,14 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            transition: transform 0.25s var(--ease-out-quart), box-shadow 0.25s var(--ease-out-quart);
         }
 
-        .property-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        @media (prefers-reduced-motion: no-preference) {
+            .property-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            }
         }
 
         .property-badge {
@@ -748,7 +837,7 @@
         }
 
         .property-content {
-            padding: 24px;
+            padding: 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -770,29 +859,47 @@
             font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: -0.01em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: var(--navy);
             line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .property-lifestyle {
+            font-size: 15px;
+            color: #666665;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         .property-features {
             font-size: 13px;
             color: var(--mid-grey);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
 
         .property-feature-tag {
-            background: var(--warm-grey);
-            padding: 3px 10px;
-            font-size: 10px;
-            font-weight: 500;
+            background: var(--navy);
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 600;
             letter-spacing: 0.05em;
-            color: var(--navy);
+            color: var(--white);
             border-radius: 3px;
-            border: 1px solid var(--rule);
+            border: none;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            cursor: default;
+        }
+
+        .property-feature-tag:hover {
+            background-color: var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
         }
 
         .property-price {
@@ -800,7 +907,7 @@
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             margin-top: auto;
             line-height: 1;
             letter-spacing: -0.01em;
@@ -827,14 +934,43 @@
             font-size: 12px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            transition: opacity 0.2s;
+            transition: all 0.25s var(--ease-out-quart);
             text-decoration: none;
             text-align: center;
             display: block;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(15, 33, 65, 0.1);
         }
 
-        .btn-learn:hover {
-            opacity: 0.85;
+        @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+            .btn-learn:hover {
+                transform: scale(1.03);
+                box-shadow: 0 4px 16px rgba(15, 33, 65, 0.15);
+                filter: blur(1px);
+                transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart), filter 200ms var(--ease-out-quart);
+            }
+        }
+
+        .btn-learn:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .btn-learn:active {
+                transform: scale(0.97);
+                transition: transform 160ms var(--ease-out-quart);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .btn-learn {
+                padding: 14px 22px;
+                font-size: 13px;
+            }
         }
 
         /* ===== TESTIMONIALS ===== */
@@ -842,6 +978,7 @@
             padding: 5rem 0;
             background: var(--warm-grey);
             border-bottom: 1px solid var(--rule);
+            contain: layout style paint;
         }
 
         .testimonials .section-header h2 {
@@ -876,6 +1013,14 @@
             padding: 2rem;
             border-radius: 6px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.25s var(--ease-out-quart);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .testimonial:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            }
         }
 
         .testimonial-text {
@@ -939,6 +1084,7 @@
             padding: 5rem 0;
             background: var(--white);
             border-bottom: 1px solid var(--rule);
+            contain: layout style paint;
         }
 
         .team .section-header h2 {
@@ -992,6 +1138,14 @@
             text-align: left;
             display: flex;
             flex-direction: column;
+            transition: all 0.25s var(--ease-out-quart);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .team-member:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+            }
         }
 
         .team-member-photo {
@@ -1258,6 +1412,7 @@
             padding: 5rem 0;
             background: var(--warm-grey);
             border-bottom: 1px solid var(--rule);
+            contain: layout style paint;
         }
 
         .faq .section-header h2 {
@@ -1292,22 +1447,24 @@
             font-size: 16px;
             letter-spacing: -0.01em;
             color: var(--navy);
-            transition: color 0.2s;
+            transition: color 0.25s var(--ease-out-quart);
             border: none;
             background: transparent;
             width: 100%;
             text-align: left;
         }
 
-        .faq-question:hover {
-            color: var(--gold);
+        @media (prefers-reduced-motion: no-preference) {
+            .faq-question:hover {
+                color: var(--gold);
+            }
         }
 
         .faq-toggle {
             font-family: var(--font);
             font-size: 22px;
             font-weight: 400;
-            transition: transform 0.3s;
+            transition: transform 0.3s var(--ease-out-quart);
             flex-shrink: 0;
             margin-left: 1rem;
             line-height: 1;
@@ -1320,13 +1477,15 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s;
+            transition: max-height 0.3s var(--ease-out-quart), opacity 0.3s var(--ease-out-quart);
             padding: 0;
+            opacity: 0;
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
             padding: 0 0 2rem;
+            opacity: 1;
         }
 
         .faq-answer p {
@@ -1380,6 +1539,14 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: all 0.25s var(--ease-out-quart);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .resource-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            }
         }
 
         .resource-card-image {
@@ -1874,7 +2041,10 @@
 
         @media (max-width: 480px) {
             .whatsapp-float {
-                display: none;
+                width: 48px;
+                height: 48px;
+                bottom: 16px;
+                right: 16px;
             }
 
             .whatsapp-float svg {
@@ -1900,56 +2070,16 @@
                 border-top: 1px solid var(--rule);
                 border-bottom: 1px solid var(--rule);
                 padding: 1.5rem 2rem;
-                display: none;
+                display: none !important;
                 z-index: 999;
-            }
-
-            nav ul.active {
-                display: flex;
             }
 
             nav li {
                 margin-bottom: 1rem;
             }
 
-            .sticky-cta {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                left: auto;
-                width: 60px;
-                height: 60px;
-                padding: 0;
-                background: var(--gold);
-                border-radius: 50%;
-                display: none;
-                z-index: 998;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            }
-
-            .sticky-cta.show {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .sticky-cta a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                background: transparent;
-                color: var(--navy);
-                border-radius: 50%;
-                font-size: 24px;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            .sticky-cta a:hover {
-                opacity: 0.9;
+            nav ul.active {
+                display: flex !important;
             }
         }
 
@@ -2027,22 +2157,22 @@
 </head>
 <body>
     <!-- ===== NAVIGATION ===== -->
-    <nav>
+    <nav class="scrolled">
         <div class="container">
             <div class="logo">Balam Group</div>
-            <button id="mobile-menu-toggle" style="display: none; background: none; border: none; cursor: pointer; font-size: 22px; padding: 8px; color: var(--navy);">&#9776;</button>
-            <ul id="nav-menu">
-                <li><a href="#properties">Properties</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#guide">Buyer's Guide</a></li>
-                <li><a href="#faq">FAQ</a></li>
+            <button id="mobile-menu-toggle" style="display: none; background: none; border: none; cursor: pointer; font-size: 22px; padding: 8px; color: var(--navy);" aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="nav-menu">☰</button>
+            <ul id="nav-menu" style="display: flex;">
+                <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#properties">Properties</a></li>
+                <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#team">Team</a></li>
+                <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#guide">Buyer's Guide</a></li>
+                <li><a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#faq">FAQ</a></li>
                 <li><a href="https://wa.me/message/OHIXI5OQQGXBM1" class="nav-cta">Chat on WhatsApp</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="hero fade-in-up" style="animation-delay: 0s;">
         <div class="hero-content">
             <div class="hero-eyebrow">Mérida Real Estate</div>
             <h1>Buy Your Dream Mérida Home <span>Without the Fideicomiso Confusion</span></h1>
@@ -2056,7 +2186,7 @@
     </section>
 
     <!-- ===== TRUST STRIP ===== -->
-    <section class="trust-strip">
+    <section class="trust-strip fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="trust-badges">
                 <!-- Families: Home icon -->
@@ -2102,7 +2232,7 @@
     </section>
 
     <!-- ===== MERIDA OPPORTUNITY ===== -->
-    <section class="merida-opportunity">
+    <section class="merida-opportunity fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">The Opportunity</span>
@@ -2127,14 +2257,14 @@
     </section>
 
     <!-- ===== GREGORY'S STORY & TRUST ANCHOR ===== -->
-    <section class="gregory-story">
+    <section class="gregory-story fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="gregory-story-body">
                 <span class="eyebrow">Why Balam Group</span>
                 <h2>Why Balam Group?</h2>
                 <div class="gregory-article-text">
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                        <div>
+                        <div class="benefit-item" style="animation-delay: 0s;">
                             <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.25rem;">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -2146,7 +2276,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="benefit-item" style="animation-delay: 0.15s;">
                             <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.25rem;">
                                     <path d="M12 2v20M2 12h20"></path>
@@ -2158,7 +2288,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="benefit-item" style="animation-delay: 0.3s;">
                             <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.25rem;">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
@@ -2169,7 +2299,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="benefit-item" style="animation-delay: 0.45s;">
                             <div style="display: flex; align-items: flex-start; gap: 1rem;">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink: 0; margin-top: 0.25rem;">
                                     <path d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -2187,7 +2317,7 @@
     </section>
 
     <!-- ===== FEATURED PROPERTIES ===== -->
-    <section class="featured-properties" id="properties">
+    <section class="featured-properties fade-in-up" id="properties" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">Portfolio</span>
@@ -2196,85 +2326,90 @@
             </div>
             <div class="properties-grid">
                 <!-- Entry Tier: Lots -->
-                <div class="property-card tier-entry">
+                <div class="property-card tier-entry animate-in fade-in-up" style="animation-delay: 0s;">
                     <span class="property-badge entry">Entry Lot</span>
-                    <div class="property-image"><img loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" alt="Blu Lagun community lot in Conkal"></div>
+                    <div class="property-image"><img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1564013799919-ab600027ffc6" alt="Blu Lagun community lot in Conkal"></div>
                     <div class="property-content">
                         <span class="property-location">Conkal • North Mérida</span>
                         <h3 class="property-name">Blu Lagun</h3>
+                        <p class="property-lifestyle">Wake to lake breezes and morning walks around your own gated retreat. It's the lifestyle upgrade you've been imagining.</p>
                         <div class="property-features">
                             <span class="property-feature-tag">Lake Access</span>
                             <span class="property-feature-tag">Community Pool</span>
                             <span class="property-feature-tag">Gated</span>
                         </div>
                         <div class="property-price">From $55K USD<span>~$988K MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn">Learn More</a>
+                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
                     </div>
                 </div>
 
-                <div class="property-card tier-entry">
+                <div class="property-card tier-entry animate-in fade-in-up" style="animation-delay: 0.1s;">
                     <span class="property-badge entry">Entry Lot</span>
-                    <div class="property-image"><img loading="lazy" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" alt="Alcázar golf community lot"></div>
+                    <div class="property-image"><img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1560518883-ce09059eeffa" alt="Alcázar golf community lot"></div>
                     <div class="property-content">
                         <span class="property-location">Country Zone • Mérida</span>
                         <h3 class="property-name">Alcázar</h3>
+                        <p class="property-lifestyle">Your daily view: manicured greens, perfect weather, and the peace of mind that comes from a thriving golf community. This is where you actually want to spend your retirement.</p>
                         <div class="property-features">
                             <span class="property-feature-tag">Golf Community</span>
                             <span class="property-feature-tag">312m² Lots</span>
                             <span class="property-feature-tag">Gated</span>
                         </div>
                         <div class="property-price">From $104K USD<span>~$1.87M MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn">Learn More</a>
+                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
                     </div>
                 </div>
 
-                <div class="property-card tier-entry">
+                <div class="property-card tier-entry animate-in fade-in-up" style="animation-delay: 0.2s;">
                     <span class="property-badge entry">Entry Lot</span>
-                    <div class="property-image"><img loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" alt="Morabela gated community lot in North Mérida"></div>
+                    <div class="property-image"><img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1564013799919-ab600027ffc6" alt="Morabela gated community lot in North Mérida"></div>
                     <div class="property-content">
                         <span class="property-location">North Mérida</span>
                         <h3 class="property-name">Morabela</h3>
+                        <p class="property-lifestyle">Brand new, completely customizable, and positioned to appreciate before demand peaks. Build your vision while prices are still accessible.</p>
                         <div class="property-features">
                             <span class="property-feature-tag">327m² Lots</span>
                             <span class="property-feature-tag">Gated</span>
                             <span class="property-feature-tag">New Delivery</span>
                         </div>
                         <div class="property-price">From $139K USD<span>~$2.5M MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn">Learn More</a>
+                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Mid Tier: Home -->
-                <div class="property-card tier-mid">
+                <div class="property-card tier-mid animate-in fade-in-up" style="animation-delay: 0s;">
                     <span class="property-badge mid">Luxury Home</span>
-                    <div class="property-image"><img loading="lazy" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&h=300&fit=crop" alt="Casa Seis luxury villa with private pool in Temozón Norte"></div>
+                    <div class="property-image"><img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1613490493576-7fde63acd811" alt="Casa Seis luxury villa with private pool in Temozón Norte"></div>
                     <div class="property-content">
                         <span class="property-location">Temozón Norte</span>
                         <h3 class="property-name">Casa Seis</h3>
+                        <p class="property-lifestyle">This isn't just a house—it's your private sanctuary. Morning swims, afternoon siestas, evening sunsets that never get old. Temozón Norte is where luxury meets everyday peace.</p>
                         <div class="property-features">
                             <span class="property-feature-tag">3BR • 5BA</span>
                             <span class="property-feature-tag">Private Pool</span>
                             <span class="property-feature-tag">Luxury Finishes</span>
                         </div>
                         <div class="property-price">From $323K USD<span>~$5.8M MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn">Learn More</a>
+                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Premium Tier: Beachfront -->
-                <div class="property-card tier-premium">
+                <div class="property-card tier-premium animate-in fade-in-up" style="animation-delay: 0.1s;">
                     <span class="property-badge premium">Premium Beachfront</span>
-                    <div class="property-image"><img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="Mangata beachfront penthouse with ocean views on San Bruno coast"></div>
+                    <div class="property-image"><img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1507525428034-b723cf961d3e" alt="Mangata beachfront penthouse with ocean views on San Bruno coast"></div>
                     <div class="property-content">
                         <span class="property-location">San Bruno Coast</span>
                         <h3 class="property-name">Mangata</h3>
+                        <p class="property-lifestyle">Sunset cocktails on your own beachfront. No commute, no crowds, just ocean views and a lifestyle most people only dream about. This is what early retirement looks like.</p>
                         <div class="property-features">
                             <span class="property-feature-tag">Beachfront</span>
                             <span class="property-feature-tag">4BR • 5.5BA</span>
                             <span class="property-feature-tag">Ocean Views</span>
                         </div>
                         <div class="property-price">From $772K USD<span>~$13.9M MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn">Learn More</a>
+                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -2282,12 +2417,12 @@
     </section>
 
     <!-- ===== WEBINAR & EDUCATION (FREE GUIDE) ===== -->
-    <section class="webinar-section">
+    <section class="webinar-section fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <span class="eyebrow">Free Education</span>
                 <h2>Start Your Journey With a Free Webinar</h2>
-                <p style="font-size: 17px; margin-bottom: 3rem; color: rgba(255,255,255,0.65); max-width: 58ch; margin-left: auto; margin-right: auto; font-family: 'Inter', sans-serif; line-height: 1.75;">
+                <p style="font-size: 17px; margin-bottom: 3rem; color: rgba(255,255,255,0.65); max-width: 58ch; margin-left: auto; margin-right: auto; font-family: &#39;Inter&#39;, sans-serif; line-height: 1.75;">
                     Join hundreds of Americans who've attended our free <strong style="color: #FFFFFF;">"Live Yucatán Dream"</strong> webinar. Learn the truth about buying property as a foreigner, avoid costly mistakes, and get a personalized strategy tailored to your goals.
                 </p>
                 <div class="webinar-inner">
@@ -2297,10 +2432,10 @@
                         <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position:absolute;left:0;color:#C9922A;font-weight:700;">—</span>Real closing costs—nothing hidden, full transparency</li>
                         <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position:absolute;left:0;color:#C9922A;font-weight:700;">—</span>Mérida's market right now: opportunities, risks, and appreciation trends</li>
                         <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position:absolute;left:0;color:#C9922A;font-weight:700;">—</span>Financing options for foreign buyers (Mexican banks, international lenders)</li>
-                        <li style="padding-left: 1.5rem; position: relative;"><span style="position:absolute;left:0;color:#C9922A;font-weight:700;">—</span>Q&A with Greg and the Balam team</li>
+                        <li style="padding-left: 1.5rem; position: relative;"><span style="position:absolute;left:0;color:#C9922A;font-weight:700;">—</span>Q&amp;A with Greg and the Balam team</li>
                     </ul>
                 </div>
-                <a href="https://wa.me/message/OHIXI5OQQGXBM1?text=I'd%20like%20to%20attend%20the%20Live%20Yucatán%20Dream%20webinar" class="btn-cta-primary">
+                <a href="https://wa.me/message/OHIXI5OQQGXBM1?text=I%27d%20like%20to%20attend%20the%20Live%20Yucat%C3%A1n%20Dream%20webinar" class="btn-cta-primary">
                     Reserve Your Free Spot
                 </a>
             </div>
@@ -2308,7 +2443,7 @@
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->
-    <section class="how-it-works">
+    <section class="how-it-works fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--accent);">The Process</span>
@@ -2336,7 +2471,7 @@
     </section>
 
     <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials">
+    <section class="testimonials fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--accent);">Client Results</span>
@@ -2356,7 +2491,7 @@
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-text">"We had been thinking about emigrating to Mérida for 3 years and Amina was a great help to us. She made the entire process smooth and enjoyable."</div>
-                    <span class="testimonial-author">Rosy & Alejandro — Mexico City</span>
+                    <span class="testimonial-author">Rosy &amp; Alejandro — Mexico City</span>
                     <span class="stars">★★★★★</span>
                 </div>
             </div>
@@ -2368,7 +2503,7 @@
     </section>
 
     <!-- ===== TEAM ===== -->
-    <section class="team" id="team">
+    <section class="team fade-in-up" id="team" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">The People</span>
@@ -2382,12 +2517,12 @@
                         <div>
                             <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
                                 <div style="width: 80px; height: 80px; overflow: hidden; background: #E2E8F0; flex-shrink: 0; border-radius: 50%;">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=240&fit=crop" alt="Gregory Hokenson, Founder & Lead Broker" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                    <img src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1507003211169-0a1dd7228f2d" alt="Gregory Hokenson, Founder &amp; Lead Broker" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                                 </div>
                                 <div>
-                                    <h3 style="color: #0F2141; font-size: 1.5rem; margin-bottom: 4px; font-family: 'Libre Baskerville', Georgia, serif;">Gregory Hokenson</h3>
-                                    <div style="color: #C9922A; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px;">Founder & Lead Broker</div>
-                                    <div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 10px; color: #64748B; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;">NAR + AMPI Certified | 15+ Years | 500+ Closings</div>
+                                    <h3 style="color: #0F2141; font-size: 1.5rem; margin-bottom: 4px; font-family: &#39;Libre Baskerville&#39;, Georgia, serif;">Gregory Hokenson</h3>
+                                    <div style="color: #C9922A; font-family: &#39;Inter&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 6px;">Founder &amp; Lead Broker</div>
+                                    <div style="font-family: &#39;Inter&#39;, &#39;Helvetica Neue&#39;, Arial, sans-serif; font-size: 10px; color: #64748B; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;">NAR + AMPI Certified | 15+ Years | 500+ Closings</div>
                                 </div>
                             </div>
                             <p style="font-size: 15px; color: #64748B; line-height: 1.8; margin-bottom: 1rem;">
@@ -2405,9 +2540,9 @@
             <div style="margin-bottom: 3rem;">
                 <div class="team-section-sub">The Team That Closes Your Deal</div>
                 <div class="team-grid">
-                    <div class="team-member">
+                    <div class="team-member fade-in-up" style="animation-delay: 0s;">
                         <div class="team-member-photo">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop" alt="Fernanda Piñeira, Senior Agent">
+                            <img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1494790108377-be9c29b29330" alt="Fernanda Piñeira, Senior Agent">
                         </div>
                         <div class="team-member-info">
                             <h3>Fernanda Piñeira</h3>
@@ -2415,9 +2550,9 @@
                             <p>Born and raised in Yucatán. Fernanda knows every neighborhood—which ones appreciate fastest, where expats thrive, which streets to avoid. She doesn't just show properties; she helps you find where you'll actually want to live.</p>
                         </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member fade-in-up" style="animation-delay: 0.1s;">
                         <div class="team-member-photo">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" alt="Amina, Client Relations Manager">
+                            <img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1507003211169-0a1dd7228f2d(1)" alt="Amina, Client Relations Manager">
                         </div>
                         <div class="team-member-info">
                             <h3>Amina</h3>
@@ -2425,13 +2560,13 @@
                             <p>Your first call, your last question. Amina coordinates every step of your journey—from first property tour to final closing. She keeps you informed, answers questions instantly, and makes sure nothing falls through the cracks.</p>
                         </div>
                     </div>
-                    <div class="team-member">
+                    <div class="team-member fade-in-up" style="animation-delay: 0.2s;">
                         <div class="team-member-photo">
-                            <img loading="lazy" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="Flavio Parra Cervantes, Legal Advisor">
+                            <img loading="lazy" src="./Balam Group Real Estate _ Premium Properties in Mérida, Yucatán_files/photo-1500648767791-00dcc994a43e" alt="Flavio Parra Cervantes, Legal Advisor">
                         </div>
                         <div class="team-member-info">
                             <h3>Flavio Parra Cervantes</h3>
-                            <span class="team-role">Legal Advisor — Fideicomiso & Compliance</span>
+                            <span class="team-role">Legal Advisor — Fideicomiso &amp; Compliance</span>
                             <p>Specializes in fideicomiso structures and foreign buyer regulations. Flavio ensures your purchase is legally sound, tax-optimized, and bulletproof. He's handled 200+ international transactions and knows every edge case.</p>
                         </div>
                     </div>
@@ -2448,7 +2583,7 @@
     </section>
 
     <!-- ===== TRANSPARENT PRICING ===== -->
-    <section style="padding: 6rem 0; background: #F5F6F8;">
+    <section style="padding: 6rem 0px; background: rgb(245, 246, 248); animation-delay: 0s;" class="fade-in-up">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">No Hidden Fees</span>
@@ -2461,7 +2596,7 @@
                     <span style="color: #C9922A; font-weight: 600;">[X]% of purchase price*</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid #E2E8F0;">
-                    <span style="font-weight: 500; color: #0F2141;">Legal & Fideicomiso Setup</span>
+                    <span style="font-weight: 500; color: #0F2141;">Legal &amp; Fideicomiso Setup</span>
                     <span style="color: #64748B;">Included</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid #E2E8F0;">
@@ -2488,7 +2623,7 @@
     </section>
 
     <!-- ===== FOREIGN BUYER'S GUIDE ===== -->
-    <section class="buyers-guide" id="guide">
+    <section class="buyers-guide fade-in-up" id="guide" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow" style="color: var(--accent);">Knowledge Base</span>
@@ -2506,35 +2641,35 @@
                 <div class="guide-item">
                     <div class="guide-icon">02 —</div>
                     <div class="guide-text">
-                        <h3>Costs & Financing</h3>
+                        <h3>Costs &amp; Financing</h3>
                         <p>Total closing costs are typically 5-8% (notary, registration, fideicomiso setup). Many foreign buyers finance locally with Mexican banks or SOFIMEX (foreign-friendly lenders) at competitive rates. We connect you with trusted financing partners.</p>
                     </div>
                 </div>
                 <div class="guide-item">
                     <div class="guide-icon">03 —</div>
                     <div class="guide-text">
-                        <h3>Timeline & Process</h3>
+                        <h3>Timeline &amp; Process</h3>
                         <p>From discovery to closing: 4-8 weeks. Our legal team handles all documentation. You'll need: valid passport, proof of funds, and a few signatures. The rest is on us.</p>
                     </div>
                 </div>
                 <div class="guide-item">
                     <div class="guide-icon">04 —</div>
                     <div class="guide-text">
-                        <h3>Resale & Appreciation</h3>
+                        <h3>Resale &amp; Appreciation</h3>
                         <p>Your property is fully yours to sell, rent, or pass on. Mérida properties appreciate ~15% annually on average. Rental income is strong, especially near expat zones and beach communities.</p>
                     </div>
                 </div>
                 <div class="guide-item">
                     <div class="guide-icon">05 —</div>
                     <div class="guide-text">
-                        <h3>Residency & Community</h3>
+                        <h3>Residency &amp; Community</h3>
                         <p>Buying property doesn't automatically grant residency, but you can apply for Temporary or Permanent Residency separately. Mérida has a thriving expat community with English services, international schools, and clubs.</p>
                     </div>
                 </div>
                 <div class="guide-item">
                     <div class="guide-icon">06 —</div>
                     <div class="guide-text">
-                        <h3>Safety & Stability</h3>
+                        <h3>Safety &amp; Stability</h3>
                         <p>Mérida ranks #1 safest large city in Mexico (6 years). Your investment is protected by Mexican law. We stay current on regulations and ensure all transactions are legally sound.</p>
                     </div>
                 </div>
@@ -2543,7 +2678,7 @@
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section class="faq" id="faq">
+    <section class="faq fade-in-up" id="faq" style="animation-delay: 0s;">
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">Questions</span>
@@ -2589,7 +2724,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">What if there's a legal problem with the property after I buy it?<span class="faq-toggle">+</span></button>
-                    <div class="faq-answer"><p>Our in-house legal team performs a complete title search and due diligence before you make an offer. We verify property ownership, check for liens, and ensure clear title. We also carry E&O (Errors & Omissions) insurance, which protects you in the rare event of an issue we missed. Post-purchase, we provide support and referrals to trusted contractors and specialists.</p></div>
+                    <div class="faq-answer"><p>Our in-house legal team performs a complete title search and due diligence before you make an offer. We verify property ownership, check for liens, and ensure clear title. We also carry E&amp;O (Errors &amp; Omissions) insurance, which protects you in the rare event of an issue we missed. Post-purchase, we provide support and referrals to trusted contractors and specialists.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question">Can I get financing if I'm not a Mexican citizen?<span class="faq-toggle">+</span></button>
@@ -2604,7 +2739,7 @@
     </section>
 
     <!-- ===== RESOURCES ===== -->
-    <section class="resources">
+    <section class="resources fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div class="resources-header">
                 <span class="eyebrow" style="color: var(--accent);">Further Reading</span>
@@ -2612,7 +2747,7 @@
                 <p>Expert guides and market insights to help you make informed decisions about investing in Mérida.</p>
             </div>
             <div class="resources-grid">
-                <div class="resource-card">
+                <div class="resource-card fade-in-up" style="animation-delay: 0s;">
                     <div class="resource-card-image">01</div>
                     <div class="resource-card-content">
                         <h3>7 Best Zones to Invest in Mérida</h3>
@@ -2620,18 +2755,18 @@
                         <a href="https://www.balamgroup.com.mx/las-7-mejores-zonas-para-invertir-en-merida-analisis-de-plusvalia-2025/" class="resource-link">Read Article →</a>
                     </div>
                 </div>
-                <div class="resource-card">
+                <div class="resource-card fade-in-up" style="animation-delay: 0.1s;">
                     <div class="resource-card-image">02</div>
                     <div class="resource-card-content">
-                        <h3>Real Estate Boom in Mérida: Opportunities & Challenges</h3>
+                        <h3>Real Estate Boom in Mérida: Opportunities &amp; Challenges</h3>
                         <p>Understand what's driving Mérida's real estate surge, market trends for 2025, and why now is the right time to invest.</p>
                         <a href="https://www.balamgroup.com.mx/en/the-real-estate-boom-in-merida-opportunities-challenges-investment-outlook-in-yucatan/" class="resource-link">Read Article →</a>
                     </div>
                 </div>
-                <div class="resource-card">
+                <div class="resource-card fade-in-up" style="animation-delay: 0.2s;">
                     <div class="resource-card-image">03</div>
                     <div class="resource-card-content">
-                        <h3>Mérida's Diamond Zone: Lifestyle & Investment</h3>
+                        <h3>Mérida's Diamond Zone: Lifestyle &amp; Investment</h3>
                         <p>Explore premium neighborhoods, high-growth areas, and the lifestyle that makes Mérida the #1 safest large city in Mexico.</p>
                         <a href="https://www.balamgroup.com.mx/en/meridas-diamond-zone-lifestyle-and-investment-in-the-heart-of-the-southeast/" class="resource-link">Read Article →</a>
                     </div>
@@ -2641,20 +2776,20 @@
     </section>
 
     <!-- ===== FINAL CTA ===== -->
-    <section class="final-cta">
+    <section class="final-cta fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <span class="eyebrow">Take the First Step</span>
             <h2>Ready to Begin Your Mérida Journey?</h2>
             <p>Whether you're looking to invest, retire, or build your dream home in paradise, our team is here to guide every step. Let's find your perfect property.</p>
             <div class="final-cta-buttons">
                 <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-cta-primary" aria-label="Chat with us on WhatsApp for instant assistance">Chat on WhatsApp</a>
-                <a href="#contact" class="btn-cta-secondary" aria-label="Go to contact form to send us a message">Contact Us</a>
+                <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#contact" class="btn-cta-secondary" aria-label="Go to contact form to send us a message">Contact Us</a>
             </div>
         </div>
     </section>
 
     <!-- ===== CONTACT FORM ===== -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section fade-in-up" style="animation-delay: 0s;">
         <div class="container">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                 <!-- LEFT: CONSULTATION -->
@@ -2666,25 +2801,26 @@
                     <form class="contact-form" method="POST" action="https://formspree.io/f/xyzabc123">
                         <div class="form-group">
                             <label for="consult-name">Your Name</label>
-                            <input type="text" id="consult-name" name="name" required>
+                            <input type="text" id="consult-name" name="name" required="">
                         </div>
                         <div class="form-group">
                             <label for="consult-email">Email Address</label>
-                            <input type="email" id="consult-email" name="email" required>
+                            <input type="email" id="consult-email" name="email" required="">
                         </div>
                         <div class="form-group">
                             <label for="consult-phone">Phone</label>
-                            <input type="tel" id="consult-phone" name="phone" required>
+                            <input type="tel" id="consult-phone" name="phone" required="">
                         </div>
                         <div class="form-group">
                             <label for="consult-budget">Budget Range</label>
-                            <select id="consult-budget" name="budget" required style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
+                            <select id="consult-budget" name="budget" required="" aria-describedby="budget-hint" style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
                                 <option value="">Select your budget</option>
                                 <option value="Under $150K">Under $150K</option>
                                 <option value="$150K - $250K">$150K - $250K</option>
                                 <option value="$250K - $400K">$250K - $400K</option>
                                 <option value="$400K+">$400K+</option>
                             </select>
+                            <small id="budget-hint" style="font-size: 12px; color: var(--mid-grey); margin-top: 4px; display: block;">This helps us match properties to your investment level.</small>
                         </div>
                         <button type="submit" class="form-submit">Schedule Call</button>
                     </form>
@@ -2716,11 +2852,11 @@
                     <form class="lead-magnet-form" method="POST" action="https://formspree.io/f/xyzabc123">
                         <div class="form-group">
                             <label for="magnet-name">Your Name</label>
-                            <input type="text" id="magnet-name" name="name" required>
+                            <input type="text" id="magnet-name" name="name" required="">
                         </div>
                         <div class="form-group">
                             <label for="magnet-email">Email Address</label>
-                            <input type="email" id="magnet-email" name="email" required>
+                            <input type="email" id="magnet-email" name="email" required="">
                         </div>
                         <button type="submit" class="btn-lead-magnet">Get Checklist</button>
                         <p style="font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 1rem; text-align: center;">Instant download. No spam.</p>
@@ -2827,22 +2963,22 @@
             <div class="footer-socials">
                 <a href="https://facebook.com/balamgroup" class="social-link" title="Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
                     </svg>
                 </a>
                 <a href="https://instagram.com/balamgroup" class="social-link" title="Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m5.894 7.687c.006.126.009.252.009.379 0 3.88-2.953 8.36-8.359 8.36-1.659 0-3.197-.487-4.495-1.32.23.027.465.04.704.04 1.375 0 2.64-.468 3.64-1.256-1.285-.024-2.367-.872-2.74-2.04.179.034.363.052.55.052.268 0 .527-.035.774-.101-1.344-.271-2.356-1.457-2.356-2.88v-.036c.396.22.85.352 1.34.368-.788-.527-1.308-1.425-1.308-2.442 0-.539.145-1.044.398-1.48 1.448 1.776 3.613 2.944 6.05 3.07-.05-.213-.076-.434-.076-.66 0-1.6 1.298-2.898 2.898-2.898.833 0 1.586.352 2.115.917.66-.13 1.28-.37 1.84-.702-.216.676-.676 1.244-1.273 1.603.585-.07 1.143-.225 1.66-.456-.387.58-.878 1.088-1.44 1.494z"/>
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m5.894 7.687c.006.126.009.252.009.379 0 3.88-2.953 8.36-8.359 8.36-1.659 0-3.197-.487-4.495-1.32.23.027.465.04.704.04 1.375 0 2.64-.468 3.64-1.256-1.285-.024-2.367-.872-2.74-2.04.179.034.363.052.55.052.268 0 .527-.035.774-.101-1.344-.271-2.356-1.457-2.356-2.88v-.036c.396.22.85.352 1.34.368-.788-.527-1.308-1.425-1.308-2.442 0-.539.145-1.044.398-1.48 1.448 1.776 3.613 2.944 6.05 3.07-.05-.213-.076-.434-.076-.66 0-1.6 1.298-2.898 2.898-2.898.833 0 1.586.352 2.115.917.66-.13 1.28-.37 1.84-.702-.216.676-.676 1.244-1.273 1.603.585-.07 1.143-.225 1.66-.456-.387.58-.878 1.088-1.44 1.494z"></path>
                     </svg>
                 </a>
                 <a href="https://www.youtube.com/@balamgroup" class="social-link" title="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
                     </svg>
                 </a>
                 <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="social-link" title="WhatsApp">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.84 1.195c-1.47.822-2.667 1.977-3.39 3.417-1.215 2.357-.968 5.059.613 7.382 1.58 2.322 4.156 3.786 6.899 3.786 1.216 0 2.41-.223 3.54-.667l2.987.832a.75.75 0 00.933-.933l-.832-2.987a8.99 8.99 0 001.518-5.29c-.001-4.962-4.037-9.001-9.003-9.001z"/>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.84 1.195c-1.47.822-2.667 1.977-3.39 3.417-1.215 2.357-.968 5.059.613 7.382 1.58 2.322 4.156 3.786 6.899 3.786 1.216 0 2.41-.223 3.54-.667l2.987.832a.75.75 0 00.933-.933l-.832-2.987a8.99 8.99 0 001.518-5.29c-.001-4.962-4.037-9.001-9.003-9.001z"></path>
                     </svg>
                 </a>
             </div>
@@ -2854,10 +2990,10 @@
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <a href="#properties">Featured Properties</a>
-                    <a href="#guide">Buyer's Guide</a>
-                    <a href="#team">Our Team</a>
-                    <a href="#faq">FAQ</a>
+                    <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#properties">Featured Properties</a>
+                    <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#guide">Buyer's Guide</a>
+                    <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#team">Our Team</a>
+                    <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#faq">FAQ</a>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
@@ -2868,7 +3004,7 @@
             </div>
             <div class="footer-divider"></div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Balam Group Real Estate. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>© 2024 Balam Group Real Estate. All rights reserved. | <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#">Privacy Policy</a> | <a href="file:///Users/stefanbernius/Library/CloudStorage/OneDrive-Personal/Beruflich/00%20Bernius_Consulting/02%20AI%20Tools/Claude%20Landingpages/index_balam.html#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -2876,7 +3012,7 @@
     <!-- ===== FLOATING WHATSAPP ===== -->
     <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="whatsapp-float" title="Chat with us on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.84 1.195c-1.47.822-2.667 1.977-3.39 3.417-1.215 2.357-.968 5.059.613 7.382 1.58 2.322 4.156 3.786 6.899 3.786 1.216 0 2.41-.223 3.54-.667l2.987.832a.75.75 0 00.933-.933l-.832-2.987a8.99 8.99 0 001.518-5.29c-.001-4.962-4.037-9.001-9.003-9.001z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.84 1.195c-1.47.822-2.667 1.977-3.39 3.417-1.215 2.357-.968 5.059.613 7.382 1.58 2.322 4.156 3.786 6.899 3.786 1.216 0 2.41-.223 3.54-.667l2.987.832a.75.75 0 00.933-.933l-.832-2.987a8.99 8.99 0 001.518-5.29c-.001-4.962-4.037-9.001-9.003-9.001z"></path>
         </svg>
     </a>
 
@@ -2898,14 +3034,11 @@
         if (menuToggle) {
             menuToggle.setAttribute('aria-expanded', 'false');
             menuToggle.addEventListener('click', () => {
-                const isOpen = navMenu.classList.contains('active');
-                if (!isOpen) {
-                    navMenu.classList.add('active');
+                if (navMenu.style.display === 'none') {
                     navMenu.style.display = 'flex';
                     menuToggle.classList.add('active');
                     menuToggle.setAttribute('aria-expanded', 'true');
                 } else {
-                    navMenu.classList.remove('active');
                     navMenu.style.display = 'none';
                     menuToggle.classList.remove('active');
                     menuToggle.setAttribute('aria-expanded', 'false');
@@ -2915,10 +3048,7 @@
             document.querySelectorAll('#nav-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (window.innerWidth < 768) {
-                        navMenu.classList.remove('active');
                         navMenu.style.display = 'none';
-                        menuToggle.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
@@ -3116,7 +3246,7 @@
         // ===== STICKY MOBILE CTA ON SCROLL =====
         const stickyCta = document.createElement('div');
         stickyCta.className = 'sticky-cta';
-        stickyCta.innerHTML = '<a href="https://wa.me/message/OHIXI5OQQGXBM1" title="Chat with us">💬</a>';
+        stickyCta.innerHTML = '<a href="https://wa.me/message/OHIXI5OQQGXBM1">Chat Now — Get Property List</a>';
         document.body.appendChild(stickyCta);
 
         let heroHeight = document.querySelector('.hero')?.offsetHeight || 500;
@@ -3137,6 +3267,7 @@
                 nav.classList.remove('scrolled');
             }
         });
-    </script>
-</body>
-</html>
+    </script><div class="sticky-cta"><a href="https://wa.me/message/OHIXI5OQQGXBM1">Chat Now — Get Property List</a></div>
+
+
+</body></html>
