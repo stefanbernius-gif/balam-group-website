@@ -97,16 +97,14 @@
                 opacity: 0;
             }
 
-            /* Staggered animation for benefit items */
+            /* Staggered animation for benefit items - triggered by scroll observer */
             .benefit-item {
-                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
                 opacity: 0;
             }
 
-            .benefit-item:nth-child(1) { animation-delay: 0s; }
-            .benefit-item:nth-child(2) { animation-delay: 0.05s; }
-            .benefit-item:nth-child(3) { animation-delay: 0.1s; }
-            .benefit-item:nth-child(4) { animation-delay: 0.15s; }
+            .benefit-item.fade-in-up {
+                animation: fadeInUp 0.5s var(--ease-out-quint) forwards;
+            }
 
             /* Staggered animation for property cards */
             .property-card.animate-in {
@@ -3141,25 +3139,36 @@
         // Mobile menu toggle
         const menuToggle = document.getElementById('mobile-menu-toggle');
         const navMenu = document.getElementById('nav-menu');
+        let menuOpen = false;
 
         function updateMenuVisibility() {
             if (window.innerWidth < 768) {
                 menuToggle.style.display = 'block';
-                navMenu.style.display = 'none';
+                // Don't auto-hide menu if user opened it
+                if (!menuOpen) {
+                    navMenu.style.display = 'none';
+                }
             } else {
                 menuToggle.style.display = 'none';
                 navMenu.style.display = 'flex';
+                menuOpen = false;
             }
         }
 
         if (menuToggle) {
             menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.addEventListener('click', () => {
-                if (navMenu.style.display === 'none') {
-                    navMenu.style.display = 'flex';
-                    menuToggle.classList.add('active');
-                    menuToggle.setAttribute('aria-expanded', 'true');
-                } else {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuOpen = !menuOpen;
+                navMenu.style.display = menuOpen ? 'flex' : 'none';
+                menuToggle.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth < 768 && menuOpen && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    menuOpen = false;
                     navMenu.style.display = 'none';
                     menuToggle.classList.remove('active');
                     menuToggle.setAttribute('aria-expanded', 'false');
@@ -3169,7 +3178,10 @@
             document.querySelectorAll('#nav-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (window.innerWidth < 768) {
+                        menuOpen = false;
                         navMenu.style.display = 'none';
+                        menuToggle.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
@@ -3363,28 +3375,39 @@
             }
         });
 
-        // ===== COUNT UP ANIMATION FOR NUMBERS =====
+        // ===== COUNT UP ANIMATION FOR NUMBERS (restarts every scroll) =====
         const countUpObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.counted) {
-                    entry.target.dataset.counted = 'true';
+                if (entry.isIntersecting) {
                     const numberElement = entry.target.querySelector('.big-number');
-                    if (numberElement) {
-                        const text = numberElement.textContent;
-                        const match = text.match(/(\d+)/);
+                    if (numberElement && !numberElement.classList.contains('counting')) {
+                        numberElement.classList.add('counting');
+                        const originalText = numberElement.getAttribute('data-original') || numberElement.textContent;
+                        numberElement.setAttribute('data-original', originalText);
+
+                        const match = originalText.match(/(\d+)/);
                         if (match) {
                             const targetNum = parseInt(match[1]);
                             let current = 0;
-                            const increment = Math.ceil(targetNum / 60);
+                            const duration = 2000; // 2 seconds for smooth animation
+                            const steps = 60;
+                            const increment = targetNum / steps;
+                            let step = 0;
+
                             const countInterval = setInterval(() => {
-                                current += increment;
-                                if (current >= targetNum) {
+                                step++;
+                                current = Math.floor(increment * step);
+
+                                if (step >= steps) {
                                     numberElement.textContent = targetNum + '+';
                                     clearInterval(countInterval);
+                                    setTimeout(() => {
+                                        numberElement.classList.remove('counting');
+                                    }, 500);
                                 } else {
                                     numberElement.textContent = current + '+';
                                 }
-                            }, 20);
+                            }, duration / steps);
                         }
                     }
                 }
