@@ -3066,6 +3066,15 @@
             }
         }
 
+        /* ===== COUNT UP ANIMATION ===== */
+        .big-number {
+            animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.3s both;
+        }
+
+        .big-label {
+            animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.7s both;
+        }
+
         </style>
 
     <!-- ===== FOOTER ===== -->
@@ -3341,20 +3350,6 @@
             }
         });
 
-        // ===== MOBILE MENU ACCESSIBILITY =====
-        const menuToggle2 = document.getElementById('mobile-menu-toggle');
-        const navMenu2 = document.getElementById('nav-menu');
-        if (menuToggle2 && navMenu2) {
-            menuToggle2.setAttribute('aria-label', 'Toggle navigation menu');
-            menuToggle2.setAttribute('aria-expanded', 'false');
-            menuToggle2.setAttribute('aria-controls', 'nav-menu');
-
-            menuToggle2.addEventListener('click', function() {
-                const isOpen = navMenu2.classList.contains('active');
-                this.setAttribute('aria-expanded', !isOpen);
-            });
-        }
-
         // ===== STICKY MOBILE CTA ON SCROLL =====
 
         let heroHeight = document.querySelector('.hero')?.offsetHeight || 500;
@@ -3372,6 +3367,38 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+
+        // ===== COUNT UP ANIMATION FOR NUMBERS =====
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.counted) {
+                    entry.target.dataset.counted = 'true';
+                    const numberElement = entry.target.querySelector('.big-number');
+                    if (numberElement) {
+                        const text = numberElement.textContent;
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            const targetNum = parseInt(match[1]);
+                            let current = 0;
+                            const increment = Math.ceil(targetNum / 60);
+                            const countInterval = setInterval(() => {
+                                current += increment;
+                                if (current >= targetNum) {
+                                    numberElement.textContent = targetNum + '+';
+                                    clearInterval(countInterval);
+                                } else {
+                                    numberElement.textContent = current + '+';
+                                }
+                            }, 20);
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.testimonials-stat').forEach(el => {
+            countUpObserver.observe(el);
         });
     </script>
 
