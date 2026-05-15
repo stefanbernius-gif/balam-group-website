@@ -471,7 +471,6 @@
         }
 
         .btn-primary:hover {
-            opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(201, 146, 42, 0.3);
         }
@@ -1606,10 +1605,7 @@
         }
 
         /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1630,10 +1626,7 @@
             to { transform: rotate(360deg); }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            opacity: 0;
-        }
+        
 
         .fade-in {
             animation: fadeIn 0.4s ease-out forwards;
@@ -1698,7 +1691,6 @@
         }
 
         .btn-cta-primary:hover {
-            opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(201, 146, 42, 0.3);
         }
@@ -1982,56 +1974,12 @@
             opacity: 0.85;
         }
 
-        /* Sticky mobile CTA on scroll */
-        .sticky-cta {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--navy);
-            padding: 1rem;
-            z-index: 998;
-            display: none;
-            animation: slideUp 0.3s ease-out;
-            box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
-        }
+        
 
-        .sticky-cta.show {
-            display: block;
-        }
-
-        .sticky-cta a {
-            display: block;
-            background: var(--gold);
-            color: var(--navy);
-            padding: 0.875rem 1rem;
-            border-radius: 6px;
-            text-align: center;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 14px;
-            transition: opacity 0.2s;
-        }
-
-        .sticky-cta a:hover {
-            opacity: 0.85;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-            }
+        
             to {
                 transform: translateY(0);
             }
-        }
-
-        @media (min-width: 768px) {
-            .sticky-cta {
-                display: none !important;
-            }
-        }
-            opacity: 0.9;
         }
 
         .whatsapp-float svg {
@@ -2935,7 +2883,6 @@
         }
 
         .btn-lead-magnet:hover {
-            opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(201, 146, 42, 0.4);
         }
@@ -2954,7 +2901,94 @@
                 margin-top: 2rem;
             }
         }
-    </style>
+    
+        /* ===== ENHANCED MICRO-INTERACTIONS ===== */
+        @keyframes hover-scale {
+            to { transform: scale(1.02); }
+        }
+
+        @keyframes button-press {
+            to { transform: scale(0.98); }
+        }
+
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+
+        @keyframes text-reveal {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            /* Card hover effect */
+            .property-card:hover {
+                animation: hover-scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+                box-shadow: 0 12px 32px rgba(15, 33, 65, 0.15) !important;
+            }
+
+            .team-member:hover .team-member-photo img {
+                animation: hover-scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            /* Button press effect */
+            .btn-cta-primary:active,
+            .btn-learn:active {
+                animation: button-press 0.1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            /* Smooth button hover */
+            .btn-cta-primary,
+            .btn-learn,
+            .btn-cta-secondary {
+                transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            /* WhatsApp float button hover */
+            .whatsapp-float {
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+            }
+
+            .whatsapp-float:hover {
+                animation: hover-scale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                box-shadow: 0 8px 24px rgba(201, 146, 42, 0.6) !important;
+            }
+
+            /* Testimonial entrance with longer stagger */
+            .testimonials-grid > .testimonial {
+                animation-duration: 0.6s;
+            }
+
+            /* Property badge subtle pulse */
+            .property-badge {
+                animation: pulse-subtle 3s ease-in-out infinite;
+            }
+
+            /* Hero heading stagger */
+            .hero h1 {
+                animation: text-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                animation-delay: 0.1s;
+            }
+
+            .hero p {
+                animation: text-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                animation-delay: 0.2s;
+            }
+
+            .hero .btn-cta-primary {
+                animation: text-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                animation-delay: 0.3s;
+            }
+        }
+
+        </style>
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -3244,17 +3278,11 @@
         }
 
         // ===== STICKY MOBILE CTA ON SCROLL =====
-        const stickyCta = document.createElement('div');
-        stickyCta.className = 'sticky-cta';
-        stickyCta.innerHTML = '<a href="https://wa.me/message/OHIXI5OQQGXBM1">Chat Now — Get Property List</a>';
-        document.body.appendChild(stickyCta);
 
         let heroHeight = document.querySelector('.hero')?.offsetHeight || 500;
         window.addEventListener('scroll', () => {
             if (window.scrollY > heroHeight && window.innerWidth < 768) {
-                stickyCta.classList.add('show');
             } else {
-                stickyCta.classList.remove('show');
             }
         });
 
@@ -3267,7 +3295,7 @@
                 nav.classList.remove('scrolled');
             }
         });
-    </script><div class="sticky-cta"><a href="https://wa.me/message/OHIXI5OQQGXBM1">Chat Now — Get Property List</a></div>
+    </script>
 
 
 </body></html>
