@@ -374,12 +374,36 @@
         /* ===== HERO ===== */
         .hero {
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1585649166190-bef6ff48e78b?w=1920&h=1080&fit=crop') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s var(--ease-out-quart);
+        }
+
+        .hero-carousel-slide.active {
+            opacity: 1;
         }
 
         .hero::before {
@@ -389,13 +413,42 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(15, 33, 65, 0.5);
+            background: rgba(15, 33, 65, 0.35);
             pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-carousel-dots {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .hero-carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-quart);
+        }
+
+        .hero-carousel-dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        .hero-carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             text-align: center;
             max-width: 800px;
             padding: 2rem;
@@ -436,14 +489,14 @@
 
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: 5.8rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.025em;
             color: white;
-            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            max-width: 900px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
         }
 
         .hero h1 span {
@@ -2266,10 +2319,27 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero fade-in-up" style="animation-delay: 0s;">
+        <!-- Carousel Images -->
+        <div class="hero-carousel">
+            <div class="hero-carousel-slide active" style="background-image: url('./images/hero-beach-walk.jpg');"></div>
+            <div class="hero-carousel-slide" style="background-image: url('./images/hero-golf-sunset.jpg');"></div>
+            <div class="hero-carousel-slide" style="background-image: url('./images/hero-courtyard-pool.jpg');"></div>
+            <div class="hero-carousel-slide" style="background-image: url('./images/hero-caribbean-sunset.jpg');"></div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="hero-carousel-dots">
+            <span class="hero-carousel-dot active" data-index="0"></span>
+            <span class="hero-carousel-dot" data-index="1"></span>
+            <span class="hero-carousel-dot" data-index="2"></span>
+            <span class="hero-carousel-dot" data-index="3"></span>
+        </div>
+
+        <!-- Hero Content -->
         <div class="hero-content">
-            <div class="hero-eyebrow">Mérida Real Estate</div>
-            <h1>Buy Your Dream Mérida Home <span>Without the Fideicomiso Confusion</span></h1>
-            <p class="hero-subtitle">Own beachfront in Mérida in 8 weeks or less. Free webinar shows exactly how 500+ Americans made the move—no fideicomiso confusion, guaranteed closing timeline.</p>
+            <div class="hero-eyebrow">The Mérida Lifestyle</div>
+            <h1>Wake to Caribbean Breezes, Retire on Your Terms</h1>
+            <p class="hero-subtitle">Join 500+ Americans who traded hustle for peace. Beachfront in 8 weeks. Safe, appreciating, affordable. Your dream retirement starts here.</p>
 
             <div class="hero-cta">
                 <button class="btn btn-primary" id="webinar-trigger">Watch Free Webinar (30 Min)</button>
@@ -3950,6 +4020,52 @@
             document.getElementById('property-step-1').style.display = 'none';
             document.getElementById('property-step-2').style.display = 'block';
             // In production: send data to backend and scheduling system
+        });
+
+        // ===== HERO CAROUSEL =====
+        const carouselSlides = document.querySelectorAll('.hero-carousel-slide');
+        const carouselDots = document.querySelectorAll('.hero-carousel-dot');
+        const carousel = document.querySelector('.hero-carousel');
+        let currentSlide = 0;
+        let carouselInterval;
+
+        function showSlide(index) {
+            carouselSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            carouselDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % carouselSlides.length;
+            showSlide(currentSlide);
+        }
+
+        function startCarousel() {
+            carouselInterval = setInterval(nextSlide, 5500);
+        }
+
+        function pauseCarousel() {
+            clearInterval(carouselInterval);
+        }
+
+        // Start carousel on load
+        startCarousel();
+
+        // Pause on hover, resume on mouse leave
+        carousel.addEventListener('mouseenter', pauseCarousel);
+        carousel.addEventListener('mouseleave', startCarousel);
+
+        // Dot click navigation
+        carouselDots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                pauseCarousel();
+                currentSlide = parseInt(dot.dataset.index);
+                showSlide(currentSlide);
+                startCarousel();
+            });
         });
 
         // ===== CONSULTATION FORM PROGRESSIVE DISCLOSURE =====
