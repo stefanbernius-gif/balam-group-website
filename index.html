@@ -1063,6 +1063,40 @@
             }
         }
 
+        .btn-property-inquiry {
+            background: var(--gold);
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.25s var(--ease-out-quart);
+            cursor: pointer;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(201, 146, 42, 0.2);
+        }
+
+        @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+            .btn-property-inquiry:hover {
+                background: #B8811F;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(201, 146, 42, 0.3);
+            }
+        }
+
+        .btn-property-inquiry:focus {
+            outline: 2px solid var(--navy);
+            outline-offset: 2px;
+        }
+
         /* ===== TESTIMONIALS ===== */
         .testimonials {
             padding: 5rem 0;
@@ -2238,8 +2272,8 @@
             <p class="hero-subtitle">Own beachfront in Mérida in 8 weeks or less. Free webinar shows exactly how 500+ Americans made the move—no fideicomiso confusion, guaranteed closing timeline.</p>
 
             <div class="hero-cta">
-                <button class="btn btn-primary">Watch Free Webinar (30 Min)</button>
-                <button class="btn btn-secondary">Browse Properties</button>
+                <button class="btn btn-primary" id="webinar-trigger">Watch Free Webinar (30 Min)</button>
+                <button class="btn btn-secondary" id="browse-trigger">Browse Properties</button>
             </div>
         </div>
     </section>
@@ -2417,7 +2451,10 @@
                             <span class="property-feature-tag">Gated</span>
                         </div>
                         <div class="property-price">From $55K USD<span>~$988K MXN</span></div>
-                        <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">Learn More</a>
+                        <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                            <button onclick="openPropertyModal('blu-lagun')" class="btn-property-inquiry" aria-label="Request property showing">Inquiry</button>
+                            <a href="https://wa.me/message/OHIXI5OQQGXBM1" class="btn-learn" aria-label="Learn more about this property via WhatsApp">WhatsApp</a>
+                        </div>
                     </div>
                 </div>
 
@@ -2876,29 +2913,51 @@
                         <h2 style="margin-bottom: 0.5rem;">Schedule a Consultation</h2>
                         <p>Let's discuss your property goals. 15-minute call, no pressure.</p>
                     </div>
-                    <form class="contact-form" method="POST" action="https://formspree.io/f/xyzabc123">
+                    <form class="contact-form" id="consultation-form-step1" method="POST" action="https://formspree.io/f/xyzabc123">
                         <div class="form-group">
                             <label for="consult-name">Your Name</label>
-                            <input type="text" id="consult-name" name="name" required="">
+                            <input type="text" id="consult-name" name="name" required="" placeholder="First & Last">
                         </div>
                         <div class="form-group">
                             <label for="consult-email">Email Address</label>
-                            <input type="email" id="consult-email" name="email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="consult-phone">Phone</label>
-                            <input type="tel" id="consult-phone" name="phone" required="">
+                            <input type="email" id="consult-email" name="email" required="" placeholder="your@email.com">
                         </div>
                         <div class="form-group">
                             <label for="consult-budget">Budget Range</label>
-                            <select id="consult-budget" name="budget" required="" aria-describedby="budget-hint" style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
+                            <select id="consult-budget" name="budget" required="" style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
                                 <option value="">Select your budget</option>
                                 <option value="Under $150K">Under $150K</option>
                                 <option value="$150K - $250K">$150K - $250K</option>
                                 <option value="$250K - $400K">$250K - $400K</option>
                                 <option value="$400K+">$400K+</option>
                             </select>
-                            <small id="budget-hint" style="font-size: 12px; color: var(--mid-grey); margin-top: 4px; display: block;">This helps us match properties to your investment level.</small>
+                        </div>
+                        <button type="submit" class="form-submit">Continue</button>
+                        <p style="font-size: 12px; color: var(--mid-grey); margin-top: 0.75rem; text-align: center;">We'll ask for a few more details on the next step.</p>
+                    </form>
+
+                    <form class="contact-form" id="consultation-form-step2" method="POST" action="https://formspree.io/f/xyzabc123" style="display: none;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <p style="font-size: 12px; color: var(--mid-grey); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;">Final Step</p>
+                            <h3 style="font-size: 1.125rem; color: var(--navy);">When's best to reach you?</h3>
+                        </div>
+                        <input type="hidden" id="consult-hidden-name" name="name" value="">
+                        <input type="hidden" id="consult-hidden-email" name="email" value="">
+                        <input type="hidden" id="consult-hidden-budget" name="budget" value="">
+                        <div class="form-group">
+                            <label for="consult-phone">Phone</label>
+                            <input type="tel" id="consult-phone" name="phone" required="" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="consult-timezone">Timezone</label>
+                            <select id="consult-timezone" name="timezone" required="" style="width: 100%; padding: 12px; border: 1px solid var(--rule); border-radius: 4px; font-family: var(--font); color: var(--navy);">
+                                <option value="">Select your timezone</option>
+                                <option value="EST">Eastern Time (EST)</option>
+                                <option value="CST">Central Time (CST)</option>
+                                <option value="MST">Mountain Time (MST)</option>
+                                <option value="PST">Pacific Time (PST)</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         <button type="submit" class="form-submit">Schedule Call</button>
                     </form>
@@ -2928,16 +2987,11 @@
                     </div>
 
                     <form class="lead-magnet-form" method="POST" action="https://formspree.io/f/xyzabc123">
-                        <div class="form-group">
-                            <label for="magnet-name">Your Name</label>
-                            <input type="text" id="magnet-name" name="name" required="">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <input type="email" id="magnet-email" name="email" required="" placeholder="your@email.com">
                         </div>
-                        <div class="form-group">
-                            <label for="magnet-email">Email Address</label>
-                            <input type="email" id="magnet-email" name="email" required="">
-                        </div>
-                        <button type="submit" class="btn-lead-magnet">Get Checklist</button>
-                        <p style="font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 1rem; text-align: center;">Instant download. No spam.</p>
+                        <button type="submit" class="btn-lead-magnet">Send Checklist to Email</button>
+                        <p style="font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 1rem; text-align: center;">PDF link sent instantly. No spam, ever.</p>
                     </form>
                 </div>
             </div>
@@ -3537,5 +3591,390 @@
         });
     </script>
 
+    <!-- ===== WEBINAR SIGNUP MODAL ===== -->
+    <div id="webinar-modal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close webinar signup">&times;</button>
+
+            <!-- Step 1: Email Signup -->
+            <div class="modal-step" id="webinar-step-1">
+                <div class="modal-header">
+                    <h2>Claim Your Free Webinar Access</h2>
+                    <p>Join 500+ Americans who learned the fideicomiso process in 30 minutes. Plus, get your personal property shortlist within 48 hours.</p>
+                </div>
+                <form id="webinar-form" class="modal-form">
+                    <div class="form-group">
+                        <label for="webinar-name">Your Name</label>
+                        <input type="text" id="webinar-name" name="name" required="" placeholder="First & Last">
+                    </div>
+                    <div class="form-group">
+                        <label for="webinar-email">Email Address</label>
+                        <input type="email" id="webinar-email" name="email" required="" placeholder="your@email.com">
+                    </div>
+                    <button type="submit" class="btn-webinar-submit">Get Instant Access</button>
+                    <p class="form-note">Webinar link sent to your email in 2 minutes. No spam, unsubscribe anytime.</p>
+                </form>
+            </div>
+
+            <!-- Step 2: Success State -->
+            <div class="modal-step modal-success" id="webinar-step-2" style="display: none;">
+                <div style="text-align: center; padding: 2rem 0;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="margin: 0 auto 1.5rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;">You're All Set!</h3>
+                    <p style="color: var(--mid-grey); margin-bottom: 1.5rem;">Webinar link sent to your email. Check your inbox (including spam folder) in 2 minutes.</p>
+                    <div style="background: var(--warm-grey); padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem; text-align: left;">
+                        <p style="font-size: 0.875rem; color: var(--navy); font-weight: 600; margin-bottom: 0.75rem;">What happens next:</p>
+                        <ul style="list-style: none; margin: 0; padding: 0; font-size: 0.875rem; color: var(--mid-grey);">
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0;">1.</span> Watch webinar (30 min) at your convenience
+                            </li>
+                            <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0;">2.</span> We'll email your personalized property list in 48 hours
+                            </li>
+                            <li style="padding-left: 1.5rem; position: relative;">
+                                <span style="position: absolute; left: 0;">3.</span> Schedule a free 15-min call to discuss your goals
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('webinar-modal').style.display = 'none';">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PROPERTY INQUIRY MODAL ===== -->
+    <div id="property-modal" class="modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-content-small">
+            <button class="modal-close" aria-label="Close property inquiry">&times;</button>
+
+            <!-- Step 1: Schedule Showing -->
+            <div class="modal-step" id="property-step-1">
+                <div class="modal-header">
+                    <h2>Schedule Your Property Tour</h2>
+                    <p>We'll arrange a showing within 48 hours of your preferred date.</p>
+                </div>
+                <form id="property-form" class="modal-form">
+                    <input type="hidden" id="property-id" name="property_id" value="">
+                    <div class="form-group">
+                        <label for="property-email">Email Address</label>
+                        <input type="email" id="property-email" name="email" required="" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="property-date">Preferred Date</label>
+                        <input type="date" id="property-date" name="date" required="">
+                    </div>
+                    <button type="submit" class="btn-webinar-submit">Request Showing</button>
+                    <p class="form-note">We'll call or email within 24 hours to confirm.</p>
+                </form>
+            </div>
+
+            <!-- Step 2: Success State -->
+            <div class="modal-step modal-success" id="property-step-2" style="display: none;">
+                <div style="text-align: center; padding: 2rem 0;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="margin: 0 auto 1.5rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;">Tour Requested!</h3>
+                    <p style="color: var(--mid-grey); margin-bottom: 1rem;">We'll confirm your showing within 24 hours. Check your email for the property details and viewing location.</p>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="document.getElementById('property-modal').style.display = 'none';">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* ===== MODAL STYLES ===== */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 33, 65, 0.5);
+            backdrop-filter: blur(2px);
+            animation: fadeInOverlay 0.2s var(--ease-out-quart);
+        }
+
+        @keyframes fadeInOverlay {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(15, 33, 65, 0.2);
+            z-index: 10000;
+            animation: slideInModal 0.3s var(--ease-out-quart);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-content-small {
+            max-width: 420px;
+        }
+
+        @keyframes slideInModal {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -45%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: var(--navy);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
+        .modal-header {
+            padding: 2.5rem 2.5rem 0;
+        }
+
+        .modal-header h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .modal-header p {
+            font-size: 15px;
+            color: var(--mid-grey);
+            line-height: 1.6;
+        }
+
+        .modal-step {
+            padding: 2.5rem;
+            animation: fadeInScale 0.3s var(--ease-out-quart);
+        }
+
+        .modal-form {
+            margin-top: 2rem;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .modal-form input,
+        .modal-form select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            font-family: var(--font);
+            font-size: 15px;
+            color: var(--navy);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 146, 42, 0.1);
+        }
+
+        .btn-webinar-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-quart);
+            box-shadow: 0 2px 8px rgba(201, 146, 42, 0.2);
+        }
+
+        .btn-webinar-submit:hover {
+            background: #B8811F;
+            box-shadow: 0 6px 20px rgba(201, 146, 42, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--mid-grey);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .modal-success {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .modal-content {
+                width: 95%;
+                max-width: none;
+                max-height: 90vh;
+            }
+
+            .modal-step {
+                padding: 2rem 1.5rem;
+            }
+
+            .modal-header {
+                padding: 2rem 1.5rem 0;
+            }
+
+            .modal-header h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+    <script>
+        // ===== MODAL HANDLERS =====
+        const webinarModal = document.getElementById('webinar-modal');
+        const propertyModal = document.getElementById('property-modal');
+        const webinarTrigger = document.getElementById('webinar-trigger');
+        const browseTrigger = document.getElementById('browse-trigger');
+        const webinarForm = document.getElementById('webinar-form');
+        const propertyForm = document.getElementById('property-form');
+
+        // Webinar modal open
+        webinarTrigger.addEventListener('click', () => {
+            webinarModal.style.display = 'flex';
+            document.getElementById('webinar-step-1').style.display = 'block';
+            document.getElementById('webinar-step-2').style.display = 'none';
+            webinarForm.reset();
+        });
+
+        // Property modal open (triggered from property cards)
+        window.openPropertyModal = function(propertyId) {
+            propertyModal.style.display = 'flex';
+            document.getElementById('property-step-1').style.display = 'block';
+            document.getElementById('property-step-2').style.display = 'none';
+            document.getElementById('property-id').value = propertyId;
+            propertyForm.reset();
+        };
+
+        // Close modals on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.closest('.modal').style.display = 'none';
+                }
+            });
+        });
+
+        // Close modals on close button
+        document.querySelectorAll('.modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                webinarModal.style.display = 'none';
+                propertyModal.style.display = 'none';
+            }
+        });
+
+        // Webinar form submission
+        webinarForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate form submission
+            document.getElementById('webinar-step-1').style.display = 'none';
+            document.getElementById('webinar-step-2').style.display = 'block';
+            // In production: send data to backend and retrieve calendar/confirmation link
+        });
+
+        // Property form submission
+        propertyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate form submission
+            document.getElementById('property-step-1').style.display = 'none';
+            document.getElementById('property-step-2').style.display = 'block';
+            // In production: send data to backend and scheduling system
+        });
+
+        // ===== CONSULTATION FORM PROGRESSIVE DISCLOSURE =====
+        const consultStep1 = document.getElementById('consultation-form-step1');
+        const consultStep2 = document.getElementById('consultation-form-step2');
+
+        consultStep1.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Store values in hidden fields for step 2
+            document.getElementById('consult-hidden-name').value = document.getElementById('consult-name').value;
+            document.getElementById('consult-hidden-email').value = document.getElementById('consult-email').value;
+            document.getElementById('consult-hidden-budget').value = document.getElementById('consult-budget').value;
+            // Show step 2, hide step 1
+            consultStep1.style.display = 'none';
+            consultStep2.style.display = 'block';
+            // Scroll to new form
+            setTimeout(() => {
+                consultStep2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        });
+
+        // Browse properties trigger (scroll to properties section)
+        browseTrigger.addEventListener('click', () => {
+            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
 </body></html>
